@@ -52,4 +52,20 @@ Adding more client configs for my laptop and other devices. Setting up dynamic D
 
 ---
 
+## Project 4: Docker + Uptime Kuma
+
+### What I Did
+
+Docker was already installed on my Pi so I jumped straight into using it. Set up Uptime Kuma as my first containerized service using Docker Compose. It's a self-hosted monitoring dashboard that checks whether my services are up. I have monitors running for Pi-hole's web interface (HTTP check), the full DNS chain through Pi-hole and Unbound (DNS check on port 53), and a ping check for WireGuard. Ran into some issues getting the DNS monitor working since containers can't reach `127.0.0.1` on the host, had to point everything at the Pi's actual IP and open up Unbound's access control to allow queries from the Docker network.
+
+### Why It Matters
+
+Docker lets you run services in isolated containers so they don't interfere with each other or the host system. If something breaks you can tear it down and rebuild it without touching anything else. It's also how most production environments work so it's a big resume skill. Uptime Kuma gives me visibility into whether my services are actually running. Without monitoring you don't know something's broken until you try to use it.
+
+### What I'd Add Next
+
+Setting up notifications so Uptime Kuma can alert me through email or Discord when something goes down instead of me having to check the dashboard. Adding more services to monitor as I build them out.
+
+---
+
 *More projects coming.*
