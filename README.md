@@ -42,5 +42,37 @@
 
 # 
 
+# \## Project 2: Pi-hole + Unbound
+
+# 
+
+# \### What I Did
+
+# 
+
+# Set up Pi-hole as a network-wide DNS sinkhole to block ads and trackers at the DNS level. Paired it with Unbound as a recursive DNS resolver so queries get resolved directly by talking to root DNS servers instead of forwarding to Google or Cloudflare. Had to configure Pi-hole to listen on `wlan0` since my Pi is on WiFi, and set Unbound's backend to `127.0.0.1#5335` as Pi-hole's upstream. Since my AT\&T gateway doesn't let you change the DNS it hands out via DHCP, I configured DNS per device instead of at the router level.
+
+# 
+
+# \### Why It Matters
+
+# 
+
+# Pi-hole blocks entire ad and tracking domains before they ever reach your device. It works on every app and every device pointed at it, not just one browser. Unbound removes the need to trust a third-party DNS provider with your query history since your Pi resolves domains itself by going straight to the authoritative nameservers. Together they give you ad blocking and DNS privacy across your whole network.
+
+# 
+
+# \### What I'd Add Next
+
+# 
+
+# Setting up Pi-hole as the DHCP server so I don't have to manually configure DNS on each device. Adding more blocklists for better coverage. Eventually when I set up WireGuard VPN I'll route that traffic through Pi-hole too so I get ad blocking and private DNS even when I'm away from home.
+
+# 
+
+# \---
+
+# 
+
 # \*More projects coming.\*
 
